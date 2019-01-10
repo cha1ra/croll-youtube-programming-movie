@@ -30,11 +30,11 @@
 
 
         <div class="row">
-            <div v-for="card in cards" :key = "card.id" class="col s12 m4">
-                <movie-card :content = 'card'></movie-card>
+            <div v-for="(card, index) in cards" :key = "card.id" class="col s12 m4">
+                <!-- <movie-card :content = 'card'></movie-card> -->
                 <div class="card">
                     <div class="card-image">
-                        <iframe width="100%" height="auto" v-bind:src="embId" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="auto" v-bind:src="embId(card.url)" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     <div class="card-content center">
                         <p>Update: {{card.date | date-filter}}</p>
@@ -43,8 +43,8 @@
                         <a class="waves-effect waves-light btn" v-bind:href="card.url" target="_blank">
                         YouTube
                         </a>
-                        <a v-on:click.native="removeCard(card.id)" class="waves-effect waves-light btn">
-                        <i class="material-icons">delete</i>
+                        <a v-on:click="removeCard(index)" class="waves-effect waves-light btn">
+                            <i class="material-icons">delete</i>
                         </a>
                     </div>
                 </div>
@@ -55,7 +55,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
     <script src="./js/main.js"></script>
 </body>
 </html>

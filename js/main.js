@@ -26,7 +26,7 @@ Vue.component('movie-card', {
       title: 'My Title'
     }
   },
-  computed: {
+  methods: {
     embId: function () {
       return 'https://www.youtube.com/embed/' + this.content.url.split('=')[1]
     }
@@ -115,7 +115,10 @@ const content = new Vue({
       this.nextIdNum++
     },
     removeCard: function (index) {
-      this.items.splice(index, 1)
+      this.cards.splice(index, 1)
+    },
+    embId: function (key) {
+      return 'https://www.youtube.com/embed/' + key.split('=')[1]
     }
   }
 })
