@@ -58,7 +58,7 @@ Vue.component('footer-component', {
     }
   },
   template: `
-    <footer class="page-footer">
+    <footer class="page-footer center">
       <div class="container">
         <p>
             {{ year }} <a href="https://twitter.com/don_bu_rakko" target="_blank">@don_bu_rakko</a> All Rights Reserved
